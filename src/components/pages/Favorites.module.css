@@ -1,4 +1,4 @@
-* {
+.favorites {
   margin: 0px;
 }
 
@@ -51,6 +51,7 @@ nav {
     .pokedex-header {
      display: flex;
      flex-direction: row; 
+     justify-content: space-between;
      align-items: center;
      padding: 12px;
     }
@@ -60,12 +61,12 @@ nav {
      border-radius: 30px;
      padding: 06px;
      background-image: url("https://i.pinimg.com/600x315/c0/07/70/c00770070b068436098e86d98a16b694.jpg");
-         
+     
     }
 
     .pokedex-grid {
       display: grid;
-      gap: 15px;
+      gap: 5px;
       grid-template-columns: repeat(3,1fr);
     }
 
@@ -74,7 +75,7 @@ nav {
       box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
       border-radius: 20px;
       background-color:aqua;
-      color: white;
+      color:brown;
       background-image: url("https://i.pinimg.com/600x315/c0/07/70/c00770070b068436098e86d98a16b694.jpg");
       padding: 20px;
     }
@@ -93,7 +94,7 @@ nav {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 20px 10px 00px 15px;
+      padding: 04px 10px 00px 15px;
       flex: 1;
     }
 
@@ -103,7 +104,6 @@ nav {
       justify-content: space-between;
       align-items:center;
       font-weight: bold;
-      padding: 10px;
     }
 
     .card-top h3 {
@@ -117,7 +117,6 @@ nav {
       flex-direction: row;
       align-items: center;
       justify-content:space-between;
-      padding-inline-start: 13px;
     }
 
     .pokemon-type {
@@ -139,17 +138,14 @@ nav {
     .pagination-container {
       display: flex;
       flex-direction: row;
-      align-items:center;
-      margin:auto;
-      font-weight: bold;
-    } 
+      align-items: center;
+    }
 
     .pokemon-heart-btn {
       border: none;
-      background-color: hwb(0 92% 5%);
-      border-radius: 15px;
+      background-color: white;
       box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
-      padding: 5px;
+      padding: 4px;
       cursor: pointer;
       align-items: center;
     }
@@ -173,8 +169,6 @@ nav {
       transform: rotateZ(-360deg) scale(1.5);
   }
 
-.App {
+.favorites {
   text-align: center;
 }
-
-
