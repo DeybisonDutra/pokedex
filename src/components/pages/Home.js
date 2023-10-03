@@ -5,6 +5,7 @@ import Searchbar from "../Searchbar";
 import Pokedex from "../Pokedex";
 import { getPokemonData, getPokemons, searchPokemon } from "../../api";
 import { FavoriteProvider } from "../contexts/favoritesContext";
+import {FaHome} from "react-icons/fa"
 
 
 

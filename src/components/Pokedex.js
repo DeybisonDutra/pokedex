@@ -24,7 +24,7 @@ const Pokedex = (props) => {
                    onLeftClick={onLeftClickHandler}
                    onRightClick={onRightClickHandler}
                 />
-                <h2> CRIADOR Deybison Dutra</h2>
+                {/* <h2> CRIADOR Deybison Dutra</h2> */}
             </div>
             {loading ? (
                 <div>Carregando, segura a fera...</div>

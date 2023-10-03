@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import FavoriteContext from "./contexts/favoritesContext";
+import { Link } from "react-router-dom";
 
 
 const Pokemon = (props) => {
@@ -15,13 +16,14 @@ const Pokemon = (props) => {
     return (
         <div className="pokemon-card">
             <div className="pokemon-image-conteiner" />
-            <img
-                style={{ cursor: 'pointer' }}
-                alt={pokemon.name}
-                // src={pokemon.sprites.front_default}
-                src={pokemon.sprites.versions?.['generation-v']?.['black-white'].animated.front_default}
-                className="pokemon-imege"
-            />
+            <Link to={`pokemon/${pokemon.id}`}>
+                <img
+                    style={{ cursor: 'pointer' }}
+                    alt={pokemon.name}
+                    src={pokemon.sprites.versions?.['generation-v']?.['black-white'].animated.front_default}
+                    className="pokemon-imege"
+                />
+            </Link>
             <div className="card-body">
                 <div className="card-top" style={{ cursor: 'pointer' }}>
                     <h3>{pokemon.name}</h3>
@@ -41,7 +43,7 @@ const Pokemon = (props) => {
                 </div>
             </div>
         </div>
-        
+
     )
 
 

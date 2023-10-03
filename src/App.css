@@ -30,7 +30,7 @@ nav {
   }
 
   .searchbar input {
-    padding: 09px;
+   
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
        
@@ -47,12 +47,26 @@ nav {
     font-weight: bolder;
     margin: 5px;
   }
+    
+  .searchbar-btn button {     
+    transition: 0.0.5s;  
+    
+  }
+  
+  .searchbar-btn button:hover {
+    -webkit-transform: scale(0.1);
+    transform: scale(1.1);
+  }
+    
 
     .pokedex-header {
      display: flex;
      flex-direction: row; 
      align-items: center;
      padding: 12px;
+    }
+    .pokedex-header h1 {
+      padding: 12px;
     }
 
     .pokedex-header h2 {
@@ -65,20 +79,31 @@ nav {
 
     .pokedex-grid {
       display: grid;
-      gap: 15px;
+      gap: 00px;
       grid-template-columns: repeat(3,1fr);
+      padding: 05px;
+      margin: 05px;
     }
 
     .pokemon-card {
       display: flex;
       box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
       border-radius: 20px;
-      background-color:aqua;
       color: white;
       background-image: url("https://i.pinimg.com/600x315/c0/07/70/c00770070b068436098e86d98a16b694.jpg");
-      padding: 20px;
+      padding: 15px;
+      margin: 15px;
     }
-
+    
+    .pokemon-card {     
+    transition: 0.0.5s;  
+    
+  }
+  
+  .pokemon-card:hover {
+    -webkit-transform: scale(0.1);
+    transform: scale(1.1);
+  }
 
     .pokemon-image {
       width: 70px;
@@ -92,8 +117,7 @@ nav {
     .card-body {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      padding: 20px 10px 00px 15px;
+      padding: 00px 10px 00px 10px;
       flex: 1;
     }
 
@@ -108,6 +132,7 @@ nav {
 
     .card-top h3 {
       text-transform: capitalize;
+      padding: 00px 00px 00px 20px;
 
     }
 
@@ -121,14 +146,15 @@ nav {
     }
 
     .pokemon-type {
-      display: flex;      
+      display: flex;
+      padding: 05px 00px 00px 20px;      
     }
 
     .pokemon-type-text {
       margin-right: 10px;
       text-transform: capitalize;
       background-color:rgb(213, 216, 212);
-      box-shadow: 0px 2px 2px #f3f1f1;
+      box-shadow: 0px 5px 2px #f3f1f1;
       border-radius: 08px;
       padding: 02px;
       background-image: url("https://i.pinimg.com/600x315/c0/07/70/c00770070b068436098e86d98a16b694.jpg");
@@ -142,6 +168,7 @@ nav {
       align-items:center;
       margin:auto;
       font-weight: bold;
+      padding: 10px;
     } 
 
     .pokemon-heart-btn {
@@ -160,20 +187,8 @@ nav {
       padding: 20px;
     }
 
-    .imagem6{
-      transition: all .5s;
-      border: 10px solid #eeeeee;
-  }
-  .imagem6:hover{
-      border: 10px solid #781f40;
-      border-radius: 50%;
-      -webkit-filter: drop-shadow(15px 7px 1px rgba(0,0,0,.5));
-      filter: drop-shadow(15px 7px 1px rgba(0,0,0,.5));
-      -webkit-transform: rotateZ(-360deg) scale(1.5);
-      transform: rotateZ(-360deg) scale(1.5);
-  }
-
-.App {
+    
+  .App {
   text-align: center;
 }
 

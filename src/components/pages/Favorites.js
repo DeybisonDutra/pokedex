@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react";
 import { FavoriteProvider } from "../contexts/favoritesContext";
 import Navbar from "../Navbar";
+import { Link } from "react-router-dom";
 
+import './Favorites.css'
 
 
 
 function Favorites() {
 
+
   const favoritesKey = "f"
 
   const [favorites, setFavorites] = useState([])
+
+  const heart = "❤️";
 
   const loadFavoritePokemons = () => {
     const pokemons = JSON.parse(window.localStorage.getItem(favoritesKey)) || []
@@ -36,6 +41,18 @@ function Favorites() {
     setFavorites(updateFavorites);
   }
 
+  const numeroFavorito =() => {
+    if(favorites.length == 0) {
+      return"Nenhum Favorito🖤"
+    }
+    else if (favorites.length == 1) {
+      return"1 Favorito"
+    }
+    else {
+      return `${favorites.length} Favoritos`
+    }
+  }
+
   useEffect(() => {
     loadFavoritePokemons();
   }, []);
@@ -48,39 +65,46 @@ function Favorites() {
         atualizarFavoritos: atualizarFavoritos,
       }}
     ><Navbar />
-      <h1>Favorites</h1>
-      <div className="pokedex-grid">
+      <div className="navbar-h1-favorito">
+        <h1>{numeroFavorito()}</h1>
+      </div>
+      <div className="pokedex-grid-favorito">
         {favorites.map(pokemon => {
           return (
-            <div className="pokemon-card">
-              <div className="pokemon-image-conteiner" />
+            <div className="pokemon-card-favorito">
+              <div className="pokemon-image-conteiner-favorito" />
+              <Link to={`/pokemon/${pokemon.id}`}>
               <img
                 style={{ cursor: 'pointer' }}
                 alt={pokemon.name}
-                // src={pokemon.sprites.front_default}
                 src={pokemon.sprites.versions?.['generation-v']?.['black-white'].animated.front_default}
                 className="pokemon-imege"
               />
-              <div className="card-body">
-                <div className="card-top" style={{ cursor: 'pointer' }}></div>
-                <h3>{pokemon.name}</h3>
-                <div>{pokemon.id}</div>
-              </div>
-              <div className="card-bottom">
-              <div className="pokemon-type" style={{ cursor: 'pointer' }} >
-                  {pokemon.types.map((type, index) => {
-                    return (
-                      <div key={index} className="pokemon-type-text">{type.type.name}</div>
-                    )
-                  })}
+              </Link>
+              <div className="card-body-favorito">
+                <div className="card-top-favorito" style={{ cursor: 'pointer' }}>
+                  <h3>{pokemon.name}</h3>
+                  <div>{pokemon.id}</div>
+                </div>
+                <div className="card-bottom-favorito">
+                  <div className="pokemon-type-favorito" style={{ cursor: 'pointer' }} >
+                    {pokemon.types.map((type, index) => {
+                      return (
+                        <div key={index} className="pokemon-type-text-favorito">{type.type.name}</div>
+                      )
+                    })}
+                  </ div>
+                  <button className="pokemon-heart-btn-favorito" onClick={() => atualizarFavoritos(pokemon)}>
+                {heart}
+              </button>
                 </ div>
               </div>
-
+              
             </div>
           )
         })}
       </div>
-    </FavoriteProvider>
+    </FavoriteProvider >
 
   )
 }
