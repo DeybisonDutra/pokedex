@@ -9,7 +9,6 @@ function Types() {
   const loadFavoritePokemons = () => {
     const pokemons = JSON.parse(window.localStorage.getItem(favoritesKey)) || []
     setFavorites(pokemons)
-    console.log(pokemons)
   }
   const atualizarFavoritos = (pokemon) => {
     // Salva todos os favoritos na variável 'updateFavorites'
@@ -34,20 +33,20 @@ function Types() {
     loadFavoritePokemons();
   }, []);
 
-    return (
+  return (
 
-      <FavoriteProvider
+    <FavoriteProvider
       value={{
         favoritePokemons: favorites,
         atualizarFavoritos: atualizarFavoritos,
       }}
-      ><Navbar />
+    ><Navbar />
       <div>
         <h1>Tipos de Pokemon</h1>
-        </div>
-      
-      </FavoriteProvider>
-    )
+      </div>
+
+    </FavoriteProvider>
+  )
 }
 
 export default Types;
