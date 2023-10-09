@@ -32,19 +32,20 @@ border : 0;
 
 .fotos {
     transition: all .5s;
-    border: 10px solid #eeeeee;
+    border: 05px solid #fffffffa;
     background-image: url("https://i.pinimg.com/600x315/c0/07/70/c00770070b068436098e86d98a16b694.jpg");
+    background-size: 330px 300px;
     display: flex;
     border-radius: 50%;
     height: 330px; 
     width: 370px;
     justify-content: space-between;
-    box-shadow: 6px 6px 6px #222a57e1;
+    box-shadow: 6px 3px 3px #222a57e1;
     
 }
 
 .fotos:hover{
-    border: 10px solid #ffe70c;
+    border: 02px solid rgb(0, 0, 0);
     border-radius: 50%;
     -webkit-filter: drop-shadow(15px 7px 1px rgba(0,0,0,.5));
     filter: drop-shadow(15px 7px 1px rgba(0,0,0,.5));
@@ -69,7 +70,7 @@ border : 0;
     border-radius: 20px;
     border: 02px solid white;
     height: 65px; 
-    width: 290px;
+    width: 400px;
     margin-left: 400px;
     font-size: 25px;
     text-transform: capitalize;

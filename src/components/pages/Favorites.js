@@ -90,7 +90,9 @@ function Favorites() {
                   <div className="pokemon-type-favorito" style={{ cursor: 'pointer' }} >
                     {pokemon.types.map((type, index) => {
                       return (
+                        <Link to={`/tipos-pokemons/${pokemon.id}`}>
                         <div key={index} className="pokemon-type-text-favorito">{type.type.name}</div>
+                        </Link>
                       )
                     })}
                   </ div>

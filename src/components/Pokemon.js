@@ -16,7 +16,7 @@ const Pokemon = (props) => {
     return (
         <div className="pokemon-card">
             <div className="pokemon-image-conteiner" />
-            <Link to={`pokemon/${pokemon.id}`}>
+            <Link to={`/pokemon/${pokemon.id}`}>
                 <img
                     style={{ cursor: 'pointer' }}
                     alt={pokemon.name}
@@ -33,7 +33,9 @@ const Pokemon = (props) => {
                     <div className="pokemon-type" style={{ cursor: 'pointer' }} >
                         {pokemon.types.map((type, index) => {
                             return (
+                                <Link to={`/tipos-pokemons/${pokemon.id}`}>
                                 <div key={index} className="pokemon-type-text">{type.type.name}</div>
+                                </Link>
                             )
                         })}
                     </ div>

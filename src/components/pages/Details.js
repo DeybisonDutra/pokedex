@@ -8,12 +8,42 @@ import { FcChargeBattery, FcCollect, FcProcess, FcOk } from "react-icons/fc";
 import { BsSnow3 } from "react-icons/bs";
 import {FaBomb} from "react-icons/fa"
 import {GiWhirlpoolShuriken} from 'react-icons/gi'
+import { FavoriteProvider } from "../contexts/favoritesContext";
 
 
 function Details() {
+  const favoritesKey = "f"
+  const [favorites, setFavorites] = useState([])
   const { id } = useParams();
   const [pokemon, setPokemon] = useState(null);
   
+  const loadFavoritePokemons = () => {
+    const pokemons = JSON.parse(window.localStorage.getItem(favoritesKey)) || []
+    setFavorites(pokemons)
+    console.log(pokemons)
+  }
+  const atualizarFavoritos = (pokemon) => {
+    // Salva todos os favoritos na variável 'updateFavorites'
+    const updateFavorites = [...favorites]
+
+    // Verifica se o pokemon que foi clicado no botão de favoritos está na lista de favoritos 
+    const favoriteIndex = favorites.findIndex(favorito => favorito.id == pokemon.id)
+
+    // Verifica se o pokemon existe ou não na lista de Favoritos, se existir o indice é 0 ou maior, se existir então remove
+    if (favoriteIndex >= 0) {
+      updateFavorites.splice(favoriteIndex, 1);
+    }
+    // Verifica se o pokemon existe ou não na lista de Favoritos, se existir o indice é -1, nesse caso adiciona o pokemon na lista de favoritos 
+    else {
+      updateFavorites.push(pokemon);
+    }
+    window.localStorage.setItem(favoritesKey, JSON.stringify(updateFavorites))
+    setFavorites(updateFavorites);
+  }
+
+  useEffect(() => {
+    loadFavoritePokemons();
+  }, []);
   // O useEffect é executado quando a página é criada, nesse caso é a página de detalhes
   // Pra ficar mais claro, no momento que a página é criada uma ou mais funções que estiverem dentro do useEffect é executa
   useEffect(() => {
@@ -27,8 +57,13 @@ function Details() {
   }, []);
 
   return (
-    <>
-      <Navbar />
+    
+    <FavoriteProvider
+    value={{
+      favoritePokemons: favorites,
+      atualizarFavoritos: atualizarFavoritos,
+    }}
+  ><Navbar />
       {pokemon && (
         <>
           <div className={styles.inicio}>
@@ -58,10 +93,7 @@ function Details() {
           </div>
         </>
       )}
-    </>
-
-
-
+    </FavoriteProvider>
   )
 }
 
