@@ -13,6 +13,13 @@ const Pokemon = (props) => {
         atualizarFavoritos(pokemon)
     }
 
+    const quebraurl = (url) => {
+        const id = url.split("type/")
+
+        return id[1]
+    }
+
+
     return (
         <div className="pokemon-card">
             <div className="pokemon-image-conteiner" />
@@ -33,8 +40,8 @@ const Pokemon = (props) => {
                     <div className="pokemon-type" style={{ cursor: 'pointer' }} >
                         {pokemon.types.map((type, index) => {
                             return (
-                                <Link to={`/tipos-pokemons/${pokemon.id}`}>
-                                <div key={index} className="pokemon-type-text">{type.type.name}</div>
+                                <Link to={`/tipos-pokemons/${quebraurl(type.type.url)}`}>
+                                    <div key={index} className="pokemon-type-text">{type.type.name}</div>
                                 </Link>
                             )
                         })}

@@ -1,15 +1,28 @@
-import Navbar from "../Navbar";
-import { FavoriteProvider } from "../contexts/favoritesContext";
 import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
+
+import Navbar from "../Navbar";
+import Pokedex from "../Pokedex";
+import { buscaPokemonPelotype, getPokemonData } from '../../api'
+import { FavoriteProvider } from "../contexts/favoritesContext";
+
+
 
 function Types() {
 
   const favoritesKey = "f"
   const [favorites, setFavorites] = useState([])
+  const { id } = useParams();
+  const [pokemons, setPokemons] = useState(null);
+  
+  const [page, setPage] = useState(0);
+  
   const loadFavoritePokemons = () => {
     const pokemons = JSON.parse(window.localStorage.getItem(favoritesKey)) || []
     setFavorites(pokemons)
+    console.log(pokemons)
   }
+
   const atualizarFavoritos = (pokemon) => {
     // Salva todos os favoritos na variável 'updateFavorites'
     const updateFavorites = [...favorites]
@@ -28,24 +41,41 @@ function Types() {
     window.localStorage.setItem(favoritesKey, JSON.stringify(updateFavorites))
     setFavorites(updateFavorites);
   }
-
-  useEffect(() => {
+  useEffect(() =>{ 
     loadFavoritePokemons();
   }, []);
 
+
+  useEffect(() => {
+    async function fetchPokemonData() {
+      const pokemonsPeloTipo = await buscaPokemonPelotype(id);
+      const pokemonsDetalhado = pokemonsPeloTipo?.pokemon?.map(async (pokemon) => {
+        return await getPokemonData(pokemon?.pokemon?.url);
+      });
+      const results = await Promise.all(pokemonsDetalhado);
+      setPokemons(results);
+      console.log('Pokemons detalhado ', pokemonsPeloTipo)
+    }
+
+    fetchPokemonData();
+  }, [id]);
+
   return (
-
     <FavoriteProvider
-      value={{
-        favoritePokemons: favorites,
-        atualizarFavoritos: atualizarFavoritos,
-      }}
-    ><Navbar />
-      <div>
-        <h1>Tipos de Pokemon</h1>
-      </div>
-
-    </FavoriteProvider>
+    value={{
+      favoritePokemons: favorites,
+      atualizarFavoritos: atualizarFavoritos,
+    }}
+  ><Navbar />
+    <div>      
+      <Pokedex 
+          pokemons={pokemons}
+          page={page}
+          setPage={setPage}
+          
+        />
+    </div >
+  </FavoriteProvider>
   )
 }
 

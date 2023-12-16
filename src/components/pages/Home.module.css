@@ -13,7 +13,7 @@
     flex-direction:row;
     justify-content: space-evenly;
     align-items: center;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: bolder;
     background-image: linear-gradient( to right,rgb(1, 1, 26),rgb(6, 6, 141),rgb(253, 253, 255) );
     }
@@ -171,4 +171,6 @@
   
   .home {
     text-align: center;
+ 
+    
   }

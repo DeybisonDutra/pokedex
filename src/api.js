@@ -37,3 +37,13 @@ export const buscaPokemonPeloID = async (id) => {
         console.log(" error", error)
     }
 }
+
+export const buscaPokemonPelotype = async (id) => {
+    try {
+        let url = `https://pokeapi.co/api/v2/type/${id}`
+        const response = await fetch(url)
+        return await response.json()
+    } catch (error) {
+        console.log(" error", error)
+    }
+}

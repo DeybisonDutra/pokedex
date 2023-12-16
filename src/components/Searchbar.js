@@ -18,6 +18,7 @@ const Searchbar = (props) => {
     <FaMagnifyingGlass />
     return (
         <div className="searchbar-container">
+            
             <div className="searchbar">
                 <div>                   
                     <input placeholder="Buscar pokemon" onChange={onChangeHandler} />
