@@ -27,8 +27,9 @@ const Searchbar = (props) => {
             <div className="searchbar-btn">
                 <button onClick={onButtonClickHandler} >Buscar</button>
             </div>
-
+              {/* <a href="https://www.google.com">Acessar o Google</a> */}
         </div>
+        
     )
 }
 

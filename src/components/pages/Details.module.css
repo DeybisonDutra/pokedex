@@ -1,34 +1,26 @@
-*{
-padding : 0px;
-margin : 0;
-border : 0;
+* {
+    padding: 0px;
+    margin: 0;
+    border: 0;
 }
 
 
 
-.inicio  {
-    display: flex;
-    padding: 20px 10px 00px 500px;
+.inicio {
+    padding: 10px 00px 00px 300px;
     align-items: center;
-    color: black;
+    color: #000000;
     font-size: 23px;
 }
 
 .topo {
     padding: 00px 110px 00px 00px;
-    margin: 00px;  
+    margin: 30px;
     width: 50px;
-    margin-left: 300px;
-    
-   
-
+    margin-left: 80px;
 }
 
-.cardImage {
-    display: flex;
-    height: 70px;
-    margin: 10px;  
-}
+
 
 .fotos {
     transition: all .5s;
@@ -37,44 +29,42 @@ border : 0;
     background-size: 330px 300px;
     display: flex;
     border-radius: 50%;
-    height: 330px; 
-    width: 370px;
+    height: 300px;
+    width: 300px;
     justify-content: space-between;
     box-shadow: 6px 3px 3px #222a57e1;
-    
+
 }
 
-.fotos:hover{
+.fotos:hover {
     border: 02px solid rgb(0, 0, 0);
     border-radius: 50%;
-    -webkit-filter: drop-shadow(15px 7px 1px rgba(0,0,0,.5));
-    filter: drop-shadow(15px 7px 1px rgba(0,0,0,.5));
+    -webkit-filter: drop-shadow(15px 7px 1px rgba(0, 0, 0, .5));
+    filter: drop-shadow(15px 7px 1px rgba(0, 0, 0, .5));
     -webkit-transform: rotateZ(-360deg) scale(1.5);
     transform: rotateZ(-360deg) scale(1.5);
 }
 
-.texto {
-    width: 290px;
-    margin-left: 400px;
-    font-size: 25px;
-    color: black;
-    text-transform: capitalize;
-    padding: 03px;
-    font-weight: bold;
-     
+.divDeFora {}
+
+.divDaImagem {  
+    margin-left: 15px; 
 }
 
-.name {
+.divDaDescricao {
+    margin-left: 10px;
+    padding: 20px;
+}
+
+.texto {
+    font-weight: bolder;
+    font-size: 1.28rem; 
+}
+
+.name {margin: 15px;
     color: white;
     background-image: linear-gradient( to right,rgb(1, 1, 26),rgb(6, 6, 141),rgb(253, 253, 255) );
-    border-radius: 20px;
-    border: 02px solid white;
-    height: 65px; 
-    width: 400px;
-    margin-left: 400px;
-    font-size: 25px;
-    text-transform: capitalize;
-    padding: 03px;
-    box-shadow: 6px 6px 6px hsla(231, 87%, 6%, 0.882);
+    border-radius: 10px;
+    height: 38px;
+    width: 240px;
 }
-

@@ -9,10 +9,14 @@ import { FcChargeBattery, FcCollect, FcProcess, FcOk } from "react-icons/fc";
 import { BsSnow3 } from "react-icons/bs";
 import { FaBomb } from "react-icons/fa"
 import { GiWhirlpoolShuriken } from 'react-icons/gi'
+import { useMediaQuery } from 'react-responsive';
 
 function Details() {
 
   const favoritesKey = "f"
+
+  const isMobile = useMediaQuery({ query: '(max-width: 600px)' });
+
   const [favorites, setFavorites] = useState([])
   const { id } = useParams();
   const [pokemon, setPokemon] = useState(null);
@@ -65,33 +69,33 @@ function Details() {
       }}
     ><Navbar />
       {pokemon && (
-        <>
-          <div className={styles.inicio}>
-            <h1> Detalhes do Pokemon </h1>
-          </div>
 
+        <div className="styles.inicio" >
+          <h1 style={{  padding: ' 10px',marginLeft: '100px',fontSize:'2.40rem'  }}> Detalhes do Pokemon </h1>
           <div className={styles.topo}>
-            <div className={styles.primeiropasso}>
-              <div className={styles.cardImage}>
+            <div className={styles.divDeFora} style={{ display: isMobile ? 'grid' : 'flex' }}>
+              <div className={styles.divDaImagem}>
                 <img className={styles.fotos} src={pokemon.sprites.front_default} alt={pokemon.name}></img>
               </div>
 
-              <div className={styles.name}>
-                <h1>{pokemon.name.substr(0, 14)}</h1>
-              </div>
-              <br></br>
-              <div className={styles.texto}>
-                <FcChargeBattery /> Type: {pokemon.type}
-                <br></br>
-                <BsSnow3 color="#259dd9" /> Peso: {pokemon.weight}
-                <br></br>
-                <FaBomb color="#f00000" /> Pokemon: {pokemon.id}
-                <br></br>
-                < GiWhirlpoolShuriken color="#0000ff" /> base_experience: {pokemon.base_experience}
+              <div className={styles.divDaDescricao}>
+                <div className={styles.name}>
+                  <h1>{pokemon.name.substr(0, 14)}</h1>
+                </div>
+                <div className={styles.texto}>
+                  <FcChargeBattery /> Type: {pokemon.type}
+                  <br></br>
+                  <BsSnow3 color="#259dd9" /> Peso: {pokemon.weight}
+                  <br></br>
+                  <FaBomb color="#f00000" /> Pokemon: {pokemon.id}
+                  <br></br>
+                  < GiWhirlpoolShuriken color="#0000ff" /> base_experience: {pokemon.base_experience}
+                </div>
               </div>
             </div>
           </div>
-        </>
+        </div>
+
       )}
     </FavoriteProvider>
   )

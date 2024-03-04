@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FavoriteProvider } from "../contexts/favoritesContext";
 import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
-
+import { useMediaQuery } from 'react-responsive';
 import './Favorites.css'
 
 
@@ -11,6 +11,8 @@ function Favorites() {
 
 
   const favoritesKey = "f"
+
+  const isMobile = useMediaQuery({ query: '(max-width: 462px)' });
 
   const [favorites, setFavorites] = useState([])
 
@@ -68,7 +70,7 @@ function Favorites() {
       <div className="navbar-h1-favorito">
         <h1>{numeroFavorito()}</h1>
       </div>
-      <div className="pokedex-grid-favorito">
+      <div className="pokedex-grid-favorito"style={{gridTemplateColumns: isMobile ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)'}}>
         {favorites.map(pokemon => {
           return (
             <div className="pokemon-card-favorito">
